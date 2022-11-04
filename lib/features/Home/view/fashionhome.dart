@@ -13,45 +13,58 @@ class FashionHome extends StatefulWidget {
 }
 
 class _FashionHomeState extends State<FashionHome> {
-  final List<TaskIcon> _list = [
-    TaskIcon('assets/image/fashionhome4.jpg'),
-    TaskIcon('assets/image/fashionhome2.jpg'),
-    TaskIcon('assets/image/fashionhome3.jpg'),
+  final List<ImageList> _list = [
+    ImageList('assets/image/fashionhome4.jpg'),
+    ImageList('assets/image/fashionhome2.jpg'),
+    ImageList('assets/image/fashionhome3.jpg'),
   ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: GridView.custom(
-          gridDelegate: SliverWovenGridDelegate.count(
-            crossAxisCount: 4,
-            mainAxisSpacing: 2,
-            crossAxisSpacing: 2,
-            pattern: [
-              const WovenGridTile(1),
-              const WovenGridTile(
-                3 / 7,
-                crossAxisRatio: 0.9,
-                alignment: AlignmentDirectional.centerEnd,
-              ),
-            ],
-          ),
-          childrenDelegate: SliverChildBuilderDelegate(
-            (context, index) => Container(
-              color: Colors.red,
-              height: 10,
-              width: 20,
+          body: StaggeredGrid.count(
+        crossAxisCount: 4,
+        mainAxisSpacing: 4,
+        crossAxisSpacing: 4,
+        children: [
+          StaggeredGridTile.count(
+            crossAxisCellCount: 2,
+            mainAxisCellCount: 5,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(25),
+              child: Image(
+                  image: AssetImage('assets/image/fashionhome4.jpg'),
+                  fit: BoxFit.fitHeight),
             ),
-            // childCount: 5,
           ),
-        ),
-      ),
+          StaggeredGridTile.count(
+            crossAxisCellCount: 2,
+            mainAxisCellCount: 3,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(35),
+              child: Image(
+                  image: AssetImage('assets/image/fashionhome2.jpg'),
+                  fit: BoxFit.fitHeight),
+            ),
+          ),
+          StaggeredGridTile.count(
+            crossAxisCellCount: 2,
+            mainAxisCellCount: 2,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(40),
+              child: Image(
+                  image: AssetImage('assets/image/fashionhome3.jpg'),
+                  fit: BoxFit.fitWidth),
+            ),
+          ),
+        ],
+      )),
     );
   }
 }
 
-class TaskIcon {
+class ImageList {
   final String imageName;
-  TaskIcon(this.imageName);
+  ImageList(this.imageName);
 }
