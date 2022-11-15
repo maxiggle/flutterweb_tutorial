@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutterwebtutorial/features/Home/view/fashionhome.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class FashionHome extends StatefulWidget {
-  const FashionHome({super.key});
+class FashionLogin extends StatefulWidget {
+  const FashionLogin({super.key});
 
   @override
-  State<FashionHome> createState() => _FashionHomeState();
+  State<FashionLogin> createState() => _FashionLoginState();
 }
 
-class _FashionHomeState extends State<FashionHome> {
+class _FashionLoginState extends State<FashionLogin> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,63 +19,57 @@ class _FashionHomeState extends State<FashionHome> {
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
           child: Column(
             children: [
-              StaggeredGrid.count(
-                crossAxisCount: 4,
-                mainAxisSpacing: 4,
-                crossAxisSpacing: 4,
-                children: [
-                  StaggeredGridTile.count(
-                    crossAxisCellCount: 2,
-                    mainAxisCellCount: 5.35,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(25),
-                      child: const Image(
-                          image: AssetImage('assets/image/fashionhome4.jpg'),
-                          fit: BoxFit.fitHeight),
+              SizedBox(
+                // height: 200,
+                child: StaggeredGrid.count(
+                  crossAxisCount: 4,
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                  children: [
+                    StaggeredGridTile.count(
+                      crossAxisCellCount: 2,
+                      mainAxisCellCount: 5,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(25),
+                        child: const Image(
+                            image: AssetImage('assets/image/fashionhome4.jpg'),
+                            fit: BoxFit.fitHeight),
+                      ),
                     ),
-                  ),
-                  StaggeredGridTile.count(
-                    crossAxisCellCount: 2,
-                    mainAxisCellCount: 3.3,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(35),
-                      child: const Image(
-                          image: AssetImage('assets/image/fashionhome2.jpg'),
-                          fit: BoxFit.fitHeight),
+                    StaggeredGridTile.count(
+                      crossAxisCellCount: 2,
+                      mainAxisCellCount: 3,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(35),
+                        child: const Image(
+                            image: AssetImage('assets/image/fashionhome2.jpg'),
+                            fit: BoxFit.fitHeight),
+                      ),
                     ),
-                  ),
-                  StaggeredGridTile.count(
-                    crossAxisCellCount: 2,
-                    mainAxisCellCount: 2,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(40),
-                      child: const Image(
-                          image: AssetImage('assets/image/fashionhome3.jpg'),
-                          fit: BoxFit.fitWidth),
+                    StaggeredGridTile.count(
+                      crossAxisCellCount: 2,
+                      mainAxisCellCount: 2,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(40),
+                        child: const Image(
+                            image: AssetImage('assets/image/fashionhome3.jpg'),
+                            fit: BoxFit.fitWidth),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 32,
               ),
-              Text(
-                "Let's Create",
-                style: GoogleFonts.libreBaskerville(
-                    color: Colors.black,
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
               RichText(
+                textAlign: TextAlign.center,
                 text: TextSpan(
-                  style: GoogleFonts.libreBaskerville(
+                  text: "Let's Create \nYour ",
+                  style: GoogleFonts.nunitoSans(
                       color: Colors.black,
                       fontSize: 36,
-                      fontWeight: FontWeight.bold),
-                  text: 'Your ',
+                      fontWeight: FontWeight.w900),
                   children: const [
                     TextSpan(
                       text: 'Style',
@@ -83,7 +78,7 @@ class _FashionHomeState extends State<FashionHome> {
                       ),
                     ),
                     TextSpan(
-                      text: ' With',
+                      text: ' With \nFashionist',
                       style: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold),
                     ),
@@ -91,20 +86,17 @@ class _FashionHomeState extends State<FashionHome> {
                 ),
               ),
               const SizedBox(
-                height: 10,
-              ),
-              Text(
-                'Fashionist',
-                style: GoogleFonts.libreBaskerville(
-                    fontSize: 36, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
                 height: 20,
               ),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const FashionHome()),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                       shape: RoundedRectangleBorder(
@@ -113,11 +105,11 @@ class _FashionHomeState extends State<FashionHome> {
                       backgroundColor: const Color(0xff282828)),
                   child: Text(
                     'Get Started',
-                    style: GoogleFonts.libreBaskerville(),
+                    style: GoogleFonts.nunitoSans(),
                   ),
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -128,7 +120,7 @@ class _FashionHomeState extends State<FashionHome> {
                   Text(
                     ' Login',
                     style: GoogleFonts.libreBaskerville(
-                        color: Color(0xffff5c00),
+                        color: const Color(0xffff5c00),
                         fontWeight: FontWeight.w400,
                         fontSize: 14),
                   ),
@@ -140,9 +132,4 @@ class _FashionHomeState extends State<FashionHome> {
       ),
     );
   }
-}
-
-class ImageList {
-  final String imageName;
-  ImageList(this.imageName);
 }
