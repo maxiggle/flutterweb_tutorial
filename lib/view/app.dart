@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutterwebtutorial/features/login/view/login.dart';
+import 'package:flutterwebtutorial/features/Home/view/fashionhome.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -10,8 +10,9 @@ class App extends StatelessWidget {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     return const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Task App',
-        home: FashionLogin());
+      debugShowCheckedModeBanner: false,
+      title: 'Task App',
+      home: FashionHome(),
+    );
   }
 }

@@ -68,7 +68,7 @@ class _FashionHomeState extends State<FashionHome> {
               height: 16,
             ),
             SizedBox(
-              height: 200,
+              height: MediaQuery.of(context).size.height * .5,
               child: Stack(
                 children: [
                   CarouselSlider.builder(
@@ -76,6 +76,7 @@ class _FashionHomeState extends State<FashionHome> {
                     carouselController: carouselController,
                     itemBuilder: (context, index, pageIndex) {
                       return Container(
+                        width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(24)),
                         margin: const EdgeInsets.only(right: 10),
@@ -91,10 +92,11 @@ class _FashionHomeState extends State<FashionHome> {
                     },
                     options: CarouselOptions(
                       aspectRatio: 12 / 6,
-                      viewportFraction: .9,
+                      viewportFraction: 1,
                       initialPage: 0,
                       enableInfiniteScroll: false,
                       reverse: false,
+                      enlargeCenterPage: true,
                       onPageChanged: (index, reason) {
                         setState(() {
                           carouselIndex = index;

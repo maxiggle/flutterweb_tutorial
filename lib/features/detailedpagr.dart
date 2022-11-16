@@ -67,7 +67,9 @@ class _FashionDetailedPageState extends State<FashionDetailedPage>
                     left: -5,
                     top: 10,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xffE3E3E3),
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -161,37 +163,6 @@ class _FashionDetailedPageState extends State<FashionDetailedPage>
           ],
         ),
       ),
-    );
-  }
-}
-
-class ContentScreen extends StatefulWidget {
-  const ContentScreen({Key? key}) : super(key: key);
-
-  @override
-  State<ContentScreen> createState() => _ContentScreenState();
-}
-
-class _ContentScreenState extends State<ContentScreen>
-    with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-
-  @override
-  void initState() {
-    _tabController = TabController(length: 2, vsync: this);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _tabController.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [],
     );
   }
 }
