@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutterwebtutorial/features/Home/view/fashionhome.dart';
 import 'package:flutterwebtutorial/features/login/view/login.dart';
 
 class App extends StatelessWidget {
@@ -12,7 +11,7 @@ class App extends StatelessWidget {
 
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Task App',
+      title: 'Fashionist',
       home: FashionLogin(),
     );
   }

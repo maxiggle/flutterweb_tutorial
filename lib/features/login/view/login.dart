@@ -3,6 +3,8 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutterwebtutorial/features/Home/view/fashionhome.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../responsive/responsive_value.dart';
+
 class FashionLogin extends StatefulWidget {
   const FashionLogin({super.key});
 
@@ -16,11 +18,13 @@ class _FashionLoginState extends State<FashionLogin> {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: Center(
             child: SizedBox(
-              width: 900,
+              width: 600,
               child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const StaggeredImage(),
                   const SizedBox(
@@ -66,7 +70,10 @@ class GetStartedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
+      width: const ResponsiveValue<double>(
+        small: 200,
+        large: 500,
+      ).getValue(context),
       child: ElevatedButton(
         onPressed: () {
           Navigator.push(
