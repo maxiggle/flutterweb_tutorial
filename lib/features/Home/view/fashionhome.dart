@@ -177,12 +177,7 @@ class _CheckoutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: ((context) => const FashionDetailedPage())));
-      },
+      onPressed: () {},
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xffD9D9D9),
         shape: RoundedRectangleBorder(
